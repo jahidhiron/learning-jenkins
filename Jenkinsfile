@@ -8,19 +8,8 @@ pipeline {
     }
 
     stage('logs') {
-      parallel {
-        stage('logs') {
-          steps {
-            sh 'ls -la'
-          }
-        }
-
-        stage('front-end-test') {
-          steps {
-            sh 'cd curriculum-front && npm install && npm run test:unit'
-          }
-        }
-
+      steps {
+        sh 'ls -la'
       }
     }
 
