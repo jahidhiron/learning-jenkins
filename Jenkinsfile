@@ -7,12 +7,6 @@ pipeline {
       }
     }
 
-    stage('logs') {
-      steps {
-        sh 'ls -la'
-      }
-    }
-
     stage('build') {
       steps {
         sh 'docker build -f curriculum-front/Dockerfile .'
