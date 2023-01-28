@@ -7,5 +7,22 @@ pipeline {
       }
     }
 
+    stage('logs') {
+      parallel {
+        stage('logs') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
+        stage('front-end-test') {
+          steps {
+            sh 'cd curriculum-front && npm i && npm run test:unit'
+          }
+        }
+
+      }
+    }
+
   }
 }
